@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Valentine 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff5f9e, #ffc371);
+      min-height: 100vh;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 20px 80px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+      margin-bottom: 5px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    h2 { font-weight: 300; margin-top: 0; }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #fff, 0 0 10px #ff77a9; }
+      to   { text-shadow: 0 0 15px #fff, 0 0 30px #ff1e75; }
+    }
+
+    .card {
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 25px;
+      margin-top: 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      backdrop-filter: blur(6px);
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .media-box {
+      background: rgba(255,255,255,0.15);
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    }
+
+    img, video {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    audio { width: 100%; }
+
+    .love-btn {
+      margin-top: 25px;
+      background: linear-gradient(135deg,#ff0844,#ffb199);
+      border: none;
+      border-radius: 40px;
+      padding: 15px 45px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+
+    .love-btn:hover { transform: scale(1.08); }
+
+    .message {
+      margin-top: 20px;
+      font-size: 22px;
+      font-family: 'Great Vibes', cursive;
+      display: none;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hearts span {
+      position: fixed;
+      bottom: -10px;
+      font-size: 20px;
+      animation: floatUp linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0) scale(1); }
+      to { transform: translateY(-110vh) scale(1.8); opacity: 0; }
+    }
+
+    footer { margin-top: 40px; opacity: 0.85; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Happy Valentine 💕</h1>
+  <h2>Kenangan Terindah Kita</h2>
+
+  <div class="card">
+    <div class="media-grid">
+
+      <!-- FOTO -->
+      <div class="media-box">
+        <h3>📸 Foto</h3>
+         <p>♥︎Sweetheart♥︎</p>
+        <img src="foto1.jpg" alt="Foto Kenangan">
+      </div>
+
+      <!-- VIDEO -->
+      <div class="media-box">
+        <h3>🎬 Video</h3>
+        <video src="vid1.mp4" controls></video>
+      </div>
+
+      <!-- AUDIO -->
+       <div class="media-box">
+        <h3>🎵 Playlist Valentine</h3>
+
+        <div class="audio-list">
+          <p>1. Sweet</p>
+          <audio src="sweet.mpeg" controls></audio>
+
+          <p>2. Kita Usahakan Rumah Itu</p>
+          <audio src="Kita usahakan.mpeg" controls></audio>
+
+          <p>3. SuperPowers</p>
+          <audio src="super.mpeg" controls></audio>
+
+          <p>4. I Thought I Saw Your Face Today</p>
+          <audio src="i though.mpeg" controls></audio>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <button class="love-btn" onclick="showLove()">💖 Klik Aja Kalo Penasaran💖</button>
+  <div class="message" id="loveMsg">You are my today and all of my tomorrows ❤️</div>
+
+  <footer>Made with ❤️ for You</footer>
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<script>
+  function showLove() {
+    const msg = document.getElementById('loveMsg');
+    msg.style.display = 'block';
+    spawnHearts();
+  }
+
+  function spawnHearts() {
+    const container = document.getElementById('hearts');
+    for (let i = 0; i < 25; i++) {
+      const span = document.createElement('span');
+      span.innerHTML = '💖';
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.animationDuration = (3 + Math.random() * 3) + 's';
+      span.style.fontSize = (14 + Math.random() * 24) + 'px';
+      container.appendChild(span);
+      setTimeout(() => span.remove(), 6000);
+    }
+  }
+</script>
+
+</body>
+</html>
